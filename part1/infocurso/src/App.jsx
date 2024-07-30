@@ -11,27 +11,27 @@ const Header = () => {
   )
 }
 
-const App = () => {
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+const Contenido = (props) => {
+  const parte1 = 'Fundamentos de React'
+  const ejercicios = 10
+  const parte2 = 'Usando props para pasar la informacion'
+  const ejercicios2 = 7
+  const parte3 = 'Estado de un componente'
+  const ejercicios3 = 14 
+  return (
+    <div>
+      <p>{parte1} {ejercicios}</p>
+      <p>{parte2} {ejercicios2}</p>
+      <p>{parte3} {ejercicios3}</p>
+    </div>
+  )
+}
 
+const App = () => {
   return (
     <div>
       <Header />
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Contenido />
     </div>
   )
 }
