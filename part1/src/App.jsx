@@ -6,6 +6,17 @@ const Hello = () => {
   )
 }
 
+const HelloProps = (props) => {
+  console.log('prueba de props',props)
+  return (
+    <div>
+      <p>
+        hola tu nombre es :{props.nombre}, tu edad es :{props.edad}
+      </p>
+    </div>
+  )
+}
+
 const Lista = () => {
   const a = 10 
   const b = 90
@@ -38,12 +49,17 @@ const Imagenes = () => {
 }
 
 const App = () => {
+  const nombre = 'Ricardo Lopez'
+  const edad = 20
+
   return (
     <div>
       <h1>Felicidades estas usando componentess</h1>
       <Hello />
       <Lista />
       <Imagenes />
+      <HelloProps nombre='Jose' edad={15+15}/>
+      <HelloProps nombre={nombre} edad={edad}/>
     </div>
   )
 }
