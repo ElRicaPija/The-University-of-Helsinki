@@ -58,7 +58,7 @@ const Parte3 = (props) => {
 }
 
 const Total = (props) => {
-  const total = 'El total de ejercicios son :'
+  const total = 'El total de ejercicios son : '
   console.log(total)
   console.log(props.ejercicios + props.ejercicios2 + props.ejercicios3)
   return (
