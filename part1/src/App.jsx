@@ -59,6 +59,7 @@ const App = () => {
       <Lista />
       <Imagenes />
       <HelloProps nombre='Jose' edad={15+15}/>
+      <HelloProps nombre='Ulises Mendiola' edad={22}/>
       <HelloProps nombre={nombre} edad={edad}/>
     </div>
   )
