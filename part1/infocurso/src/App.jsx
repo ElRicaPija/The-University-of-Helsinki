@@ -17,8 +17,41 @@ const Contenido = (props) => {
   console.log(props.parte3,props.ejercicios3)
   return (
     <div>
+      <Parte1 
+      parte1 = {props.parte1}
+      ejercicios = {props.ejercicios}
+      />
+      <Parte2 
+      parte2 = {props.parte2}
+      ejercicios2 = {props.ejercicios2}
+      />
+      <Parte3 
+      parte3 = {props.parte3}
+      ejercicios3 = {props.ejercicios3}
+      />
+    </div>
+  )
+}
+
+const Parte1 = (props) => {
+  return (
+    <div>
       <p>{props.parte1} {props.ejercicios}</p>
+    </div>
+  )
+}
+
+const Parte2 = (props) => {
+  return (
+    <div>
       <p>{props.parte2} {props.ejercicios2}</p>
+    </div>
+  )
+}
+
+const Parte3 = (props) => {
+  return (
+    <div>
       <p>{props.parte3} {props.ejercicios3}</p>
     </div>
   )
