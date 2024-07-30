@@ -2,12 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
-const Header = () => {
-  const curso = 'Desarrollo de una aplicacion usando React + Vite'
-  console.log(curso)
+const Header = (props) => {
+  console.log(props.curso)
   return (
     <div>
-      <h1>{curso}</h1>
+      <h1>{props.curso}</h1>
     </div>
   )
 }
@@ -37,6 +36,7 @@ const Total = (props) => {
 }
 
 const App = () => {
+  const curso = 'Desarrollo de una aplicacion usando React + Vite'
   const parte1 = 'Fundamentos de React'
   const ejercicios = 10
   const parte2 = 'Usando props para pasar la informacion'
@@ -45,7 +45,9 @@ const App = () => {
   const ejercicios3 = 14 
   return (
     <div>
-      <Header />
+      <Header 
+      curso = {curso} 
+      />
       <Contenido 
         parte1 = {parte1}
         ejercicios = {ejercicios}
