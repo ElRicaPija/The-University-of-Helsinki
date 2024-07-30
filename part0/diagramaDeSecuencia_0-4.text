@@ -1,0 +1,38 @@
+diagramaDeSecuencia
+    participant navegador
+    participant servidor
+
+    nota: El navegador crea una solicitud de obtencion de contenido para mostrar en pantalla con el metodo GET
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/
+    activate servidor
+    servidor-->>navegador: documento HTML
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/
+    activate servidor
+    servidor-->>navegador: IMG kuva.png
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate servidor
+    servidor-->>navegador: documento HTML
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate servidor
+    servidor-->>navegador: documento CSS
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate servidor
+    servidor-->>navegador: El archivo JavaScript
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate servidor
+    servidor-->>navegador: [{
+        "content": "hola,estoy aprendiendo desde mexico",
+        "date": "2024-07-24T22:17:08.910Z"
+    }, ... ]
+    deactivate servidor

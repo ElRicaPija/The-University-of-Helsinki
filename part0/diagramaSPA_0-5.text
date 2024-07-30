@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant navegador
+    participant servidor
+
+    nota: El usuario accede a la aplicación de notas (SPA)
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate servidor
+    servidor-->>navegador: Documento HTML
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate servidor
+    servidor-->>navegador: Archivo CSS
+    deactivate servidor
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate servidor
+    servidor-->>navegador: Archivo JavaScript (spa.js)
+    deactivate servidor
+
+    nota: El navegador ejecuta spa.js y solicita los datos de las notas
+
+    navegador->>servidor: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate servidor
+    servidor-->>navegador: [{ "content": "hola, estoy aprendiendo desde México", "date": "2024-07-24T22:17:08.910Z" }, ... ]
+    deactivate servidor
+
+    nota: El navegador procesa y muestra las notas en la pantalla
