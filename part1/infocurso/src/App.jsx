@@ -1,101 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 
 const Header = (props) => {
-  console.log(props.curso)
+  console.log(props.curso);
   return (
     <div>
       <h1>{props.curso}</h1>
     </div>
-  )
-}
+  );
+};
 
 const Contenido = (props) => {
-  console.log(props.parte1,props.ejercicios)
-  console.log(props.parte2,props.ejercicios2)
-  console.log(props.parte3,props.ejercicios3)
+  console.log(props.parte1.nombre, props.parte1.ejercicios);
+  console.log(props.parte2.nombre, props.parte2.ejercicios);
+  console.log(props.parte3.nombre, props.parte3.ejercicios);
   return (
     <div>
-      <Parte1 
-      parte1 = {props.parte1}
-      ejercicios = {props.ejercicios}
+      <Parte 
+        nombre={props.parte1.nombre}
+        ejercicios={props.parte1.ejercicios}
       />
-      <Parte2 
-      parte2 = {props.parte2}
-      ejercicios2 = {props.ejercicios2}
+      <Parte 
+        nombre={props.parte2.nombre}
+        ejercicios={props.parte2.ejercicios}
       />
-      <Parte3 
-      parte3 = {props.parte3}
-      ejercicios3 = {props.ejercicios3}
+      <Parte 
+        nombre={props.parte3.nombre}
+        ejercicios={props.parte3.ejercicios}
       />
     </div>
-  )
-}
+  );
+};
 
-const Parte1 = (props) => {
+const Parte = (props) => {
   return (
     <div>
-      <p>{props.parte1} {props.ejercicios}</p>
+      <p>{props.nombre} {props.ejercicios}</p>
     </div>
-  )
-}
-
-const Parte2 = (props) => {
-  return (
-    <div>
-      <p>{props.parte2} {props.ejercicios2}</p>
-    </div>
-  )
-}
-
-const Parte3 = (props) => {
-  return (
-    <div>
-      <p>{props.parte3} {props.ejercicios3}</p>
-    </div>
-  )
-}
+  );
+};
 
 const Total = (props) => {
-  const total = 'El total de ejercicios son : '
-  console.log(total)
-  console.log(props.ejercicios + props.ejercicios2 + props.ejercicios3)
+  const total = 'El total de ejercicios son: ';
+  console.log(total);
+  console.log(props.ejercicios1 + props.ejercicios2 + props.ejercicios3);
   return (
     <div>
-      <p>{total}{props.ejercicios + props.ejercicios2 + props.ejercicios3}</p>
+      <p>{total}{props.ejercicios1 + props.ejercicios2 + props.ejercicios3}</p>
     </div>
-  )
-}
+  );
+};
 
 const App = () => {
-  const curso = 'Desarrollo de una aplicacion usando React + Vite'
-  const parte1 = 'Fundamentos de React'
-  const ejercicios = 10
-  const parte2 = 'Usando props para pasar la informacion'
-  const ejercicios2 = 7
-  const parte3 = 'Estado de un componente'
-  const ejercicios3 = 14 
+  const curso = 'Desarrollo de una aplicación usando React + Vite';
+  const parte1 = {
+    nombre: 'Fundamentos de React',
+    ejercicios: 10
+  };
+  const parte2 = {
+    nombre: 'Usando props para pasar la información',
+    ejercicios: 7
+  };
+  const parte3 = {
+    nombre: 'Estado de un componente',
+    ejercicios: 14
+  };
   return (
     <div>
-      <Header 
-      curso = {curso} 
-      />
-      <Contenido 
-        parte1 = {parte1}
-        ejercicios = {ejercicios}
-        parte2 = {parte2}
-        ejercicios2 = {ejercicios2}
-        parte3 = {parte3}
-        ejercicios3 = {ejercicios3} 
+      <Header curso={curso} />
+      <Contenido
+        parte1={parte1}
+        parte2={parte2}
+        parte3={parte3}
       />
       <Total 
-        ejercicios = {ejercicios}
-        ejercicios2 = {ejercicios2}
-        ejercicios3 = {ejercicios3}
+        ejercicios1={parte1.ejercicios}
+        ejercicios2={parte2.ejercicios}
+        ejercicios3={parte3.ejercicios}
       />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
