@@ -2,83 +2,80 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
-const Header = (props) => {
-  console.log(props.curso);
+const Header = ({curso}) => {
+  console.log(curso);
   return (
     <div>
-      <h1>{props.curso}</h1>
+      <h1>{curso}</h1>
     </div>
   );
 };
 
-const Contenido = (props) => {
-  console.log(props.parte1.nombre, props.parte1.ejercicios);
-  console.log(props.parte2.nombre, props.parte2.ejercicios);
-  console.log(props.parte3.nombre, props.parte3.ejercicios);
+const Contenido = ({partes}) => {
+  console.log(partes[0].nombre, partes[0].ejercicios);
+  console.log(partes[1].nombre, partes[1].ejercicios);
+  console.log(partes[2].nombre, partes[2].ejercicios);
   return (
     <div>
       <Parte 
-        nombre={props.parte1.nombre}
-        ejercicios={props.parte1.ejercicios}
+        nombre={partes[0].nombre}
+        ejercicios={partes[0].ejercicios}
       />
       <Parte 
-        nombre={props.parte2.nombre}
-        ejercicios={props.parte2.ejercicios}
+        nombre={partes[1].nombre}
+        ejercicios={partes[1].ejercicios}
       />
       <Parte 
-        nombre={props.parte3.nombre}
-        ejercicios={props.parte3.ejercicios}
+        nombre={partes[2].nombre}
+        ejercicios={partes[2].ejercicios}
       />
     </div>
   );
 };
 
-const Parte = (props) => {
+const Parte = ({nombre , ejercicios}) => {
   return (
     <div>
-      <p>{props.nombre} {props.ejercicios}</p>
+      <p>{nombre} {ejercicios}</p>
     </div>
   );
 };
 
-const Total = (props) => {
+const Total = ({ partes }) => {
   const total = 'El total de ejercicios son: ';
+  const totalEjercicios = partes[0].ejercicios + partes[1].ejercicios + partes[2].ejercicios;
   console.log(total);
-  console.log(props.ejercicios1 + props.ejercicios2 + props.ejercicios3);
+  console.log(totalEjercicios);
   return (
     <div>
-      <p>{total}{props.ejercicios1 + props.ejercicios2 + props.ejercicios3}</p>
+      <p>{total}{totalEjercicios}</p>
     </div>
   );
 };
 
 const App = () => {
-  const curso = 'Desarrollo de una aplicación usando React + Vite';
-  const parte = [{
-    nombre: 'Fundamentos de React',
-    ejercicios: 10
-  },
-  {
-    nombre: 'Usando props para pasar la información',
-    ejercicios: 7
-  },
-  {
-    nombre: 'Estado de un componente',
-    ejercicios: 14
-  }];
+  const curso = {
+    nombre: 'Desarrollo de una aplicación usando React + Vite',
+    partes: [
+      {
+        nombre: 'Fundamentos de React',
+        ejercicios: 10
+      },
+      {
+        nombre: 'Usando props para pasar la información',
+        ejercicios: 7
+      },
+      {
+        nombre: 'Estado de un componente',
+        ejercicios: 14
+      }
+    ]
+  };
   return (
     <div>
-      <Header curso={curso} />
-      <Contenido
-        parte1={parte[0]}
-        parte2={parte[1]}
-        parte3={parte[2]}
-      />
-      <Total 
-        ejercicios1={parte[0].ejercicios}
-        ejercicios2={parte[1].ejercicios}
-        ejercicios3={parte[2].ejercicios}
-      />
+      <Header curso={curso.nombre} />
+      <Contenido partes={curso.partes} />
+      <Total partes={curso.partes} />
     </div>
   );
 };
