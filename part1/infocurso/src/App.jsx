@@ -54,30 +54,30 @@ const Total = (props) => {
 
 const App = () => {
   const curso = 'Desarrollo de una aplicación usando React + Vite';
-  const parte1 = {
+  const parte = [{
     nombre: 'Fundamentos de React',
     ejercicios: 10
-  };
-  const parte2 = {
+  },
+  {
     nombre: 'Usando props para pasar la información',
     ejercicios: 7
-  };
-  const parte3 = {
+  },
+  {
     nombre: 'Estado de un componente',
     ejercicios: 14
-  };
+  }];
   return (
     <div>
       <Header curso={curso} />
       <Contenido
-        parte1={parte1}
-        parte2={parte2}
-        parte3={parte3}
+        parte1={parte[0]}
+        parte2={parte[1]}
+        parte3={parte[2]}
       />
       <Total 
-        ejercicios1={parte1.ejercicios}
-        ejercicios2={parte2.ejercicios}
-        ejercicios3={parte3.ejercicios}
+        ejercicios1={parte[0].ejercicios}
+        ejercicios2={parte[1].ejercicios}
+        ejercicios3={parte[2].ejercicios}
       />
     </div>
   );
